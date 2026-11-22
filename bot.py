@@ -12,7 +12,7 @@ TOKEN = os.environ.get("TOKEN", "PUT_BOT_TOKEN")
 MAIN_GROUP = int(os.environ.get("MAIN_GROUP", "-1001111111111"))      # گروه اصلی اعضا
 ADMIN_GROUP = int(os.environ.get("ADMIN_GROUP", "-1002222222222"))    # گروه فیش‌ها برای ادمین‌ها
 BACKUP_GROUP = int(os.environ.get("BACKUP_GROUP", "-1003333333333"))  # گروه بکاپ
-ADMINS = {int(x) for x in os.environ.get("ADMINS", "111111111").split(",") if x.strip()}
+ADMINS = {int(x) for x in re.findall(r"\d+", os.environ.get("ADMINS", "111111111"))}
 DB_FILE = "data.json"
 # ============================================
 
